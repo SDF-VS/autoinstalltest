@@ -1,0 +1,43 @@
+#cloud-config
+autoinstall:
+  version: 1
+  
+  source:
+  id: ubuntu-desktop-minimal
+  
+  locale: en_US.UTF-8
+  keyboard:
+    layout: us
+  timezone: Europe/Rome
+
+  network:
+    version: 2
+    ethernets:
+      enp1s0:
+        dhcp4: true
+
+  identity:
+    username: webfleetUN
+    hostname: webfleetHN
+    password: 509d7d0ea966ed74d4cd12dcf6ae6d5440735b98aa79ce7873b87f02761d008da2657451fd297f76f1f4a3f467b426e8879a0cdefb71ae8f6ba6a2eb05d8c917
+
+  ssh:
+    install-server: true
+    allow-pw: true
+    authorized-keys: []
+
+  packages:
+    - git
+    - python3-pip
+    
+  shutdown: reboot
+  
+  storage:
+    layout:
+      name: lvm
+      policy: all
+      password: ubuntu
+
+
+
+
